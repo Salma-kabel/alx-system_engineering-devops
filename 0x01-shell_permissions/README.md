@@ -1,1 +1,2 @@
-file is not empty
+#!/bin/bash
+su betty 0-iam_betty
