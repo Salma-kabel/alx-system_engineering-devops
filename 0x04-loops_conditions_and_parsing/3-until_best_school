@@ -2,6 +2,6 @@
 #script that displays Best School 10 times.
 i=10
 until [ $i -le 0 ];
-do echo "Holberton School"
+do echo "Best School"
 i=$((i - 1))
 done
