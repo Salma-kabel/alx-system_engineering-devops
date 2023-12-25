@@ -8,5 +8,5 @@ provider => 'pip'
 package { 'Flask':
 ensure   => '2.1.0',
 provider => 'pip',
-require  => Package['werkzeug']
+require  => Package['Werkzeug']
 }
