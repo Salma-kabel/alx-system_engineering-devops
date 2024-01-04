@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#configures a new Ubuntu machine to respect above requirements
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.8
+apt-get install haproxy=2.8.\*
+echo "\nfrontend http\n\tbind *:80\n\tmode http\n\tdefault_backend web-backend\nbackend web-backend\n\tbalance roundrobin\n\tmode http\n\tserver 407460-web-01 35.153.194.5:80 check\n\tserver 407460-web-02 52.91.144.169:80 check" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
