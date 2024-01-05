@@ -1,21 +1,8 @@
 #creating a custom HTTP header response, but with Puppet.
-package {
-    'nginx':
-    ensure => installed,
-}
-
-file {'/var/www/html/index.nginx-debian.html':
-    ensure  => file,
-    content => 'Hello World!',
-}
-
-file_line {'configure redirection':
-    path    =>  '/etc/nginx/sites-available/default',
-    after   =>  'server_name _;',
-    line    =>  "\n\tadd_header X-Served-By $::hostname;\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n",
-}
-
-service {'nginx':
-    ensure  => running,
-    enable  => true,
+exec { 'command':
+  command  => 'apt-get -y update;
+  apt-get -y install nginx;
+  sudo sed -i "/listen 80 default_server;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default;
+  service nginx restart',
+  provider => shell,
 }
