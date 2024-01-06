@@ -2,7 +2,7 @@
 #script that will display information about subdomains.
 information () {
     record=$(dig "$2"."$1" +short)
-    rtype=$(dig "$2"."$1" +noall +answer | awk '{print $4}')
+    rtype=$(dig "$2"."$1" +noall +answer)
     echo "The subdomain $2 is a $rtype record and points to $record"
 }
 
