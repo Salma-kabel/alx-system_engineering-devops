@@ -2,3 +2,4 @@
 # script that configures a server to the above requirements with shorter answer
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
