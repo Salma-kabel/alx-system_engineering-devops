@@ -8,11 +8,11 @@ information () {
 
 if [ "$#" -lt 2 ]
 then
-    information $1 "www"
-    information $1 "lb-01"
-    information $1 "web-01"
-    information $1 "web-02"
+    information "$1" "www"
+    information "$1" "lb-01"
+    information "$1" "web-01"
+    information "$1" "web-02"
 elif [ "$#" -eq 2 ]
 then
-    information $1 $2
+    information "$1" "$2"
 fi
