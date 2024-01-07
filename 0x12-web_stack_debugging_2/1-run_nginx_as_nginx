@@ -2,4 +2,4 @@
 #sript to configure nginx to run as nginx user
 sed -i 's/www-data/user nginx/g' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo -u nginx service nginx restart
