@@ -45,14 +45,16 @@ def count_words(subreddit, word_list, after=None, count={}):
                             elif count[key] == int(result[i].split(' ')[1]):
                                 list1 = [key, result[i].split(' ')[0]]
                                 j = 1
-                                while count[key] == int(result[i + j].split(' ')[1]):
+                                while count[key] == int(result[i + j].split(
+                                                            ' ')[1]):
                                     list1.append(result[i + j].split(' ')[0])
                                 list1 = list1.sort
                                 for j in range(len(list1)):
                                     if key == list1[j]:
-                                        result = result[:i + j] + \
-                                                 ["{}: {}".format(key, count[key])] + \
-                                                 result[i + j:]
+                                        result = (result[:i + j] +
+                                                  ["{}: {}".format(
+                                                    key, count[key])]
+                                                  + result[i + j:])
                             else:
                                 continue
                 else:
