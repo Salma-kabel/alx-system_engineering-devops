@@ -13,7 +13,7 @@ from sys import argv
 if __name__ == '__main__':
     req_url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
     res = requests.get(req_url).json()
-    name = res['name']
+    name = res['username']
     req_url2 = "https://jsonplaceholder.typicode.com/users/{}/todos".format(
             argv[1])
     res2 = requests.get(req_url2).json()
