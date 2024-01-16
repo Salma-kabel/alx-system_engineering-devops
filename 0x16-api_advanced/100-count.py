@@ -16,7 +16,7 @@ def count_words(subreddit, word_list, after=None, count={}):
     else:
         url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(
             subreddit, after)
-    res = requests.get(url, headers={"user-agent": "user"},
+    res = requests.get(url, headers={"user-agent" : "user"},
                        allow_redirects=False)
     for word in word_list:
         if word.lower() not in count.keys():
