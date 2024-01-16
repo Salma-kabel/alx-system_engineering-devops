@@ -15,8 +15,8 @@ if __name__ == '__main__':
     res = requests.get(req_url).json()
     dic1 = {}
     for employee in res:
-        req_url2 = "https://jsonplaceholder.typicode.com/users/{}/todos"
-                    .format(employee['id'])
+        req_url2 = ("https://jsonplaceholder.typicode.com/users/{}/"
+                    "todos".format(employee['id']))
         res2 = requests.get(req_url2).json()
         tasks = []
         for task in res2:
