@@ -22,7 +22,7 @@ if __name__ == '__main__':
     for task in res2:
         if task['completed']:
             tasks.append(task)
-    print("Employee {} is done with tasks({}/{}):".format(name,
-                                                            len(tasks), length))
+    print("Employee {} is done with tasks({}/{}):".format(
+            name, len(tasks), length))
     for task in tasks:
         print("\t {}".format(task['title']))
