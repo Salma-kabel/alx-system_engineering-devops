@@ -11,9 +11,8 @@ import requests
 def top_ten(subreddit):
     """gets 10 hot posts listed for a given subreddit"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    res = requests.get(url,
-            headers={'User-Agent': 'Mozilla/5.0'},
-            allow_redirects=False)
+    res = requests.get(url, headers={"user-agent": "user"},
+                       allow_redirects=False)
     if res.status_code == 200:
         children = response.json().get('data').get('children')
         for child in range(10):
