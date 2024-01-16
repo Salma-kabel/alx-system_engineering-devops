@@ -21,12 +21,15 @@ def number_of_subscribers(subreddit):
         'User-Agent': 'A Red automation script 1.1 by Jay'
         }
     TOKEN_ACCESS_ENDPOINT = 'https://www.reddit.com/api/v1/access_token'
-    response = requests.post(TOKEN_ACCESS_ENDPOINT, headers=headers, auth=client_auth)
+    response = requests.get(TOKEN_ACCESS_ENDPOINT, headers=headers, auth=client_auth)
     if response.status_code == 200:
         token_id = response.json()['access_token']
+    else:
+        return 0
 
     url = "https://www.reddit.com/r/{}/about/.json".format(subreddit)
-    res = requests.get(url, headers={"user-agent": "SalmaSalahk"},
+    res = requests.get(url, headers={"user-agent": "SalmaSalahk",
+                "Authorization": 'Bearer ' + token_id},
                        allow_redirects=False)
     if res.status_code == 200:
         subs = res.json()
