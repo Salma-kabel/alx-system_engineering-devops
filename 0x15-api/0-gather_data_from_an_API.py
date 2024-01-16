@@ -9,7 +9,6 @@ import requests
 from sys import argv
 
 
-
 if __name__ == '__main__':
     req_url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
     res = requests.get(req_url).json()
@@ -19,9 +18,10 @@ if __name__ == '__main__':
     res2 = requests.get(req_url2).json()
     length = len(res2)
     tasks = []
-    fot task in res2:
+    for task in res2:
         if task['completed']:
             tasks.append(task)
-    print("Employee {} is done with tasks({}/{})".format(name, len(tasks) / length))
+    print("Employee {} is done with tasks({}/{})".format(name,
+            len(tasks), length))
     for task in tasks:
-        print("{}".format(task['title'])
+        print("{}".format(task['title']))
