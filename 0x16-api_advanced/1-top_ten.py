@@ -25,7 +25,7 @@ def top_ten(subreddit):
                              auth=auth, data=data, headers=headers)
     token = response.json()['access_token']
 
-    url = "https://oauth.reddit.com/r/{}/hot".format(subreddit)
+    url = "https://oauth.reddit.com/r/{}/hot.json".format(subreddit)
     res = requests.get(url, headers={
         'User-Agent': 'python:Mandelbot v1.0.0 by /u/SalmaSalahk',
         'Authorization': f'bearer {token}'},
