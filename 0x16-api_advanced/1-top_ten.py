@@ -25,14 +25,15 @@ def top_ten(subreddit):
                              auth=auth, data=data, headers=headers)
     token = response.json()['access_token']
 
-    url = "https://oauth.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://oauth.reddit.com/r/{}/hot.json".format(subreddit)
     res = requests.get(url, headers={
         'User-Agent': 'python:Mandelbot v1.0.0 by /u/SalmaSalahk',
         'Authorization': f'bearer {token}'},
-                       allow_redirects=False).json()
-    if "data" not in res:
+                       allow_redirects=False)
+
+    if res.status_code == 200:
+        children = res.json().get('data').get('children')
+        for child in range(10):
+            print(children[child].get('data').get('title'))
+    else:
         print("None")
-        return
-    children = res.get("data").get("children")
-    for child in children:
-        print(child.get("data").get("title"))
