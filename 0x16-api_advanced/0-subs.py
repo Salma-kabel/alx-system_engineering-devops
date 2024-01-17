@@ -27,7 +27,7 @@ def number_of_subscribers(subreddit):
     token = response.json()['access_token']
     url = "https://oauth.reddit.com/r/{}/about/.json".format(subreddit)
     res = requests.get(url, headers={"user-agent": "SalmaSalahk",
-                        'Authorization': f'bearer {token}'},
+                                     'Authorization': f'bearer {token}'},
                        allow_redirects=False)
     if res.status_code == 200:
         subs = res.json()
