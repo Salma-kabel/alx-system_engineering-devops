@@ -54,7 +54,7 @@ def count_words(subreddit, word_list, after=None, count={}):
                                         result = (result[:i + j] +
                                                   ["{}: {}".format(
                                                     key, count[key])] +
-                                                    result[i + j:])
+                                                  result[i + j:])
                             else:
                                 continue
                 else:
