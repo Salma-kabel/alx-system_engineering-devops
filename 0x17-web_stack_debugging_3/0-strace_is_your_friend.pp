@@ -1,6 +1,10 @@
-# Fixes Apache 500 error
+# fix apache server error
 
-exec { 'fix-wordpress':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/usr/local/bin/:/bin/'
+file { '/var/www/html/wp-settings.php':
+  ensure => present,
+}->
+file_line { 'Replace a line in /var/www/html/wp-settings.php':
+  path => '/var/www/html/wp-settings.php',  
+  line => "require_once( ABSPATH . WPINC . '/class-wp-locale.php' );",
+  match   => "require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );",
 }
