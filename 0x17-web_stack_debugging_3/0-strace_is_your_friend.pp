@@ -1,5 +1,5 @@
 # fix apache server error
-
+include stdlib
 file { '/var/www/html/wp-settings.php':
   ensure => present,
 }->
