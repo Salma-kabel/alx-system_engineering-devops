@@ -1,4 +1,5 @@
 # fix apache server error
+
 file { '/var/www/html/wp-settings.php':
   ensure => present,
 }->
