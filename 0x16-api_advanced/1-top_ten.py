@@ -14,7 +14,7 @@ def top_ten(subreddit):
     res = requests.get(url, headers={"user-agent": "SalmaSalahk"},
                        allow_redirects=False)
     if res.status_code == 200:
-        children = response.json().get('data').get('children')
+        children = res.json().get('data').get('children')
         for child in range(10):
             print(children[child].get('data').get('title'))
     else:
